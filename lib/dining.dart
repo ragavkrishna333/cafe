@@ -1,4 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/widgets.dart';
 
 class Dining extends StatefulWidget {
   const Dining({super.key});
@@ -11,64 +14,106 @@ class _DiningState extends State<Dining> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: CustomScrollView(
-      slivers: [
-        SliverAppBar(
-          flexibleSpace: Container(
-            decoration: const BoxDecoration(
-                image: DecorationImage(
-                    image: NetworkImage(
-                        "https://cdn.pixabay.com/photo/2016/03/30/21/59/coffee-beans-1291656_640.jpg"),
-                    fit: BoxFit.cover)),
-            child: const Align(
-              alignment: Alignment.bottomCenter,
-              child: Text(
-                "Cafe Name",
-                style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.w800,
-                    color: Colors.white),
+        body: Stack(children: [
+      CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            flexibleSpace: Container(
+              decoration: const BoxDecoration(
+                  image: DecorationImage(
+                      image: NetworkImage(
+                          "https://cdn.pixabay.com/photo/2016/03/30/21/59/coffee-beans-1291656_640.jpg"),
+                      fit: BoxFit.cover)),
+              child: const Align(
+                alignment: Alignment.bottomCenter,
+                child: Text(
+                  "Cafe Name",
+                  style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.w800,
+                      color: Colors.white),
+                ),
               ),
             ),
+            floating: true,
+            expandedHeight: 200,
           ),
-          floating: true,
-          expandedHeight: 200,
-        ),
-        SliverList(
-            delegate: SliverChildBuilderDelegate(childCount: dish.length,
-                (context, index) {
-          return Container(
-              color: Color.fromARGB(118, 161, 113, 96),
-              height: 100,
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    margin: EdgeInsets.only(top: 20),
-                    height: 100,
-                    width: 100,
-                    decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        image: DecorationImage(
-                            image: AssetImage(dish[index]["image"]),
-                            fit: BoxFit.cover)),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(40, 20, 100, 0),
-                    child: Text(
-                      dish[index]["title"],
-                      style: const TextStyle(
-                          fontFamily: "Inter",
-                          fontSize: 20,
-                          fontWeight: FontWeight.w600),
+          SliverList(
+              delegate: SliverChildBuilderDelegate(childCount: dish.length,
+                  (context, index) {
+            return Container(
+                color: Color.fromARGB(118, 161, 113, 96),
+                height: 100,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(top: 20),
+                      height: 100,
+                      width: 100,
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                              image: AssetImage(dish[index]["image"]),
+                              fit: BoxFit.cover)),
                     ),
-                  ),
-                  Text("₹ ${dish[index]["price"]}")
+                    Padding(
+                      padding: EdgeInsets.only(right: 30),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(40, 30, 0, 0),
+                            child: Container(
+                              padding: EdgeInsets.all(10),
+                              decoration: BoxDecoration(
+                                  color: Color.fromARGB(255, 133, 94, 78),
+                                  borderRadius: BorderRadius.circular(20)),
+                              child: Text(
+                                dish[index]["title"],
+                                style: const TextStyle(
+                                    color: Colors.white,
+                                    fontFamily: "Inter",
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w600),
+                              ),
+                            ),
+                          ),
+                          Align(
+                              alignment: Alignment.centerRight,
+                              child: Text(
+                                "₹ ${dish[index]["price"]}",
+                                style: TextStyle(
+                                    fontSize: 15, fontWeight: FontWeight.w600),
+                              ))
+                        ],
+                      ),
+                    )
+                  ],
+                ));
+          })),
+        ],
+      ),
+      Positioned(
+          left: 10,
+          right: 10,
+          bottom: 10,
+          child: Container(
+            width: MediaQuery.of(context).size.width,
+            height: 60,
+            decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                      spreadRadius: 2,
+                      blurRadius: 5,
+                      color: const Color.fromARGB(255, 63, 44, 38),
+                      offset: Offset(0, 0))
                 ],
-              ));
-        }))
-      ],
-    ));
+                borderRadius: BorderRadius.circular(20),
+                color: const Color.fromARGB(255, 63, 44, 38)),
+          ))
+    ]));
   }
 }
 
@@ -85,8 +130,8 @@ List<Map> dish = [
   },
   {"image": "assets/images/amaricano.jpg", "title": "Americano", "price": 110},
   {"image": "assets/images/mocha.jpg", "title": "Mocha", "price": 260},
-  {"image": "assets/images/Espresso.jpeg", "title": "Espresso", "price": 110},
-  {"image": "assets/images/latte.jpeg", "title": "Latte", "price": 110},
+  {"image": "assets/images/Espresso.jpeg", "title": "Espresso", "price": 90},
+  {"image": "assets/images/latte.jpeg", "title": "Latte", "price": 160},
   {
     "image": "assets/images/capaccino.jpg",
     "title": "Cappucciono",
