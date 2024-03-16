@@ -1,6 +1,7 @@
 import 'package:cafe/admin/otpDialoge.dart';
 import 'package:cafe/admin/provider/adminprovider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -107,7 +108,10 @@ class _DatacollectionState extends State<Datacollection> {
                                 showDialog(
                                   context: context,
                                   builder: (context) {
-                                    return Otpverify();
+                                    return Otpverify(
+                                      userEmail: user.email!,
+                                      isMobile: true,
+                                    );
                                   },
                                 );
                               },
@@ -122,25 +126,38 @@ class _DatacollectionState extends State<Datacollection> {
                     ],
                   ),
                 ),
-                Row(
-                  children: [
-                    myData.emailVerified
-                        ? Icon(
-                            Icons.check_circle_outline,
-                            color: Colors.green,
-                          )
-                        : Icon(
-                            Icons.unpublished_outlined,
-                            color: Colors.red,
-                          ),
-                    InkWell(
-                      onTap: () {},
-                      child: Text(
-                        user.email!,
-                        style: const TextStyle(fontSize: 20),
+                Padding(
+                  padding: EdgeInsets.only(left: 20),
+                  child: Row(
+                    children: [
+                      myData.emailVerified
+                          ? Icon(
+                              Icons.check_circle_outline,
+                              color: Colors.green,
+                            )
+                          : Icon(
+                              Icons.unpublished_outlined,
+                              color: Colors.red,
+                            ),
+                      InkWell(
+                        onTap: () {
+                          showDialog(
+                            context: context,
+                            builder: (context) {
+                              return Otpverify(
+                                userEmail: user.email!,
+                                isMobile: false,
+                              );
+                            },
+                          );
+                        },
+                        child: Text(
+                          user.email!,
+                          style: const TextStyle(fontSize: 20),
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 )
               ],
             );
