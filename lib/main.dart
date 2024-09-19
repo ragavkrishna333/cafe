@@ -1,7 +1,7 @@
-import 'package:cafe/admin/auth_page.dart';
-import 'package:cafe/admin/provider/adminprovider.dart';
-import 'package:cafe/dining.dart';
-import 'package:cafe/firebase_options.dart';
+import 'package:cafeproject/admin/auth_page.dart';
+import 'package:cafeproject/admin/provider/adminprovider.dart';
+import 'package:cafeproject/dining.dart';
+import 'package:cafeproject/firebase_options.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';

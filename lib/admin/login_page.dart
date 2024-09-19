@@ -1,8 +1,8 @@
-import 'package:cafe/admin/auth_service.dart';
-import 'package:cafe/admin/my_button.dart';
-import 'package:cafe/admin/my_textfield.dart';
-import 'package:cafe/admin/signup.dart';
-import 'package:cafe/admin/square_tile.dart';
+import 'package:cafeproject/admin/auth_service.dart';
+import 'package:cafeproject/admin/my_button.dart';
+import 'package:cafeproject/admin/my_textfield.dart';
+import 'package:cafeproject/admin/signup.dart';
+import 'package:cafeproject/admin/square_tile.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';

@@ -43,7 +43,7 @@ class _DiningState extends State<Dining> {
               delegate: SliverChildBuilderDelegate(childCount: dish.length,
                   (context, index) {
             return Container(
-                color: Color.fromARGB(118, 161, 113, 96),
+                color: const Color.fromARGB(118, 161, 113, 96),
                 height: 100,
                 child: ListTile(
                   onTap: () {
@@ -60,7 +60,7 @@ class _DiningState extends State<Dining> {
                     });
                   },
                   selected: dish[index]["add"] ?? false,
-                  visualDensity: VisualDensity(vertical: 0.5),
+                  visualDensity: const VisualDensity(vertical: 0.5),
                   titleAlignment: ListTileTitleAlignment.center,
                   contentPadding: EdgeInsets.zero,
                   leading: CircleAvatar(
@@ -81,14 +81,14 @@ class _DiningState extends State<Dining> {
                   //           fit: BoxFit.cover)),
                   // ),
                   title: Padding(
-                    padding: EdgeInsets.only(right: 0),
+                    padding: const EdgeInsets.only(right: 0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
-                          padding: EdgeInsets.all(5),
+                          padding: const EdgeInsets.all(5),
                           decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 133, 94, 78),
+                              color: const Color.fromARGB(255, 133, 94, 78),
                               borderRadius: BorderRadius.circular(10)),
                           child: Text(
                             dish[index]["title"],
@@ -103,7 +103,7 @@ class _DiningState extends State<Dining> {
                             alignment: Alignment.centerRight,
                             child: Text(
                               "₹ ${dish[index]["price"]}",
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontSize: 15, fontWeight: FontWeight.w600),
                             ))
                       ],
@@ -133,15 +133,15 @@ class _DiningState extends State<Dining> {
             width: MediaQuery.of(context).size.width,
             height: 60,
             decoration: BoxDecoration(
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
                       spreadRadius: 2,
                       blurRadius: 5,
-                      color: const Color.fromARGB(255, 63, 44, 38),
+                      color: Color.fromARGB(255, 63, 44, 38),
                       offset: Offset(0, 0))
                 ],
                 borderRadius: BorderRadius.circular(20),
-                color: Color.fromRGBO(63, 44, 38, 1)),
+                color: const Color.fromRGBO(63, 44, 38, 1)),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -150,9 +150,9 @@ class _DiningState extends State<Dining> {
                   child: MaterialButton(
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10)),
-                    color: Color.fromRGBO(100, 70, 61, 1),
+                    color: const Color.fromRGBO(100, 70, 61, 1),
                     onPressed: () {},
-                    child: Text(
+                    child: const Text(
                       "Add",
                       style: TextStyle(
                         color: Colors.white,
@@ -171,7 +171,7 @@ class _DiningState extends State<Dining> {
                         // dish[currentIndex!]["add"];
                       });
                     },
-                    child: Text(
+                    child: const Text(
                       "Cancel",
                       style: TextStyle(
                         color: Colors.white,

@@ -1,5 +1,5 @@
-import 'package:cafe/admin/otpDialoge.dart';
-import 'package:cafe/admin/provider/adminprovider.dart';
+import 'package:cafeproject/admin/otpDialoge.dart';
+import 'package:cafeproject/admin/provider/adminprovider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';

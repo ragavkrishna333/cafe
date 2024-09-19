@@ -1,4 +1,4 @@
-import 'package:cafe/admin/provider/adminprovider.dart';
+import 'package:cafeproject/admin/provider/adminprovider.dart';
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
@@ -12,6 +12,17 @@ class Otpverify extends StatefulWidget {
 
   @override
   State<Otpverify> createState() => _OtpverifyState();
+}
+
+final PhoneVerificationCompleted verificationCompleted =
+    (AuthCredential phoneAuthCredential) {
+// This callback will be called when auto-retrieval of OTP is completed.
+// For example, phone number has been instantly verified without needing OTP.
+// You can use phoneAuthCredential to sign in the user.
+};
+verificationFailed(FirebaseAuthException authException) {
+// Handle the error
+  print(authException.message);
 }
 
 class _OtpverifyState extends State<Otpverify> {
@@ -41,9 +52,11 @@ class _OtpverifyState extends State<Otpverify> {
           color: const Color.fromARGB(255, 40, 90, 41),
           onPressed: () async {
             if (widget.isMobile) {
+              print(
+                  "kkkkkkkkkkkkkkkkkkkkkkkkkkk${myData.mobileController.text}");
               FirebaseAuth.instance.verifyPhoneNumber(
-                  verificationCompleted: (phoneAuthCredential) {},
-                  verificationFailed: (error) {},
+                  verificationCompleted: verificationCompleted,
+                  verificationFailed: verificationFailed,
                   codeSent: (verificationId, forceResendingToken) {
                     setState(() {
                       mobvId = verificationId;

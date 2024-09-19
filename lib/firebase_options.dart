@@ -27,10 +27,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.macOS:
         return macos;
       case TargetPlatform.windows:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for windows - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return windows;
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -45,11 +42,12 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions web = FirebaseOptions(
     apiKey: 'AIzaSyBlM-2lmqKwYz_dvIQp6wbO3fbKkg670qA',
-    appId: '1:206256362607:web:e41d79643eadb8e3b6a99a',
+    appId: '1:206256362607:web:545bcfc8a6121cdcb6a99a',
     messagingSenderId: '206256362607',
     projectId: 'cafeproject-2ccba',
     authDomain: 'cafeproject-2ccba.firebaseapp.com',
     storageBucket: 'cafeproject-2ccba.appspot.com',
+    measurementId: 'G-QNV0HG5EKE',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
@@ -66,15 +64,30 @@ class DefaultFirebaseOptions {
     messagingSenderId: '206256362607',
     projectId: 'cafeproject-2ccba',
     storageBucket: 'cafeproject-2ccba.appspot.com',
+    androidClientId: '206256362607-6a3rl7mblmtqscol48214b5jbiaegqg5.apps.googleusercontent.com',
+    iosClientId: '206256362607-4b0jp9n6kmsg8c8o2rjt40lkrkfioccb.apps.googleusercontent.com',
     iosBundleId: 'com.example.cafe',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
     apiKey: 'AIzaSyDWqN1qmTK9BoWWqGntXDOlpzWqN5KVOhA',
-    appId: '1:206256362607:ios:94aed657d4c7f8ffb6a99a',
+    appId: '1:206256362607:ios:90b01c39b939490ab6a99a',
     messagingSenderId: '206256362607',
     projectId: 'cafeproject-2ccba',
     storageBucket: 'cafeproject-2ccba.appspot.com',
-    iosBundleId: 'com.example.cafe.RunnerTests',
+    androidClientId: '206256362607-6a3rl7mblmtqscol48214b5jbiaegqg5.apps.googleusercontent.com',
+    iosClientId: '206256362607-4b0jp9n6kmsg8c8o2rjt40lkrkfioccb.apps.googleusercontent.com',
+    iosBundleId: 'com.example.cafe',
   );
+
+  static const FirebaseOptions windows = FirebaseOptions(
+    apiKey: 'AIzaSyBlM-2lmqKwYz_dvIQp6wbO3fbKkg670qA',
+    appId: '1:206256362607:web:94bf387e8e1e6582b6a99a',
+    messagingSenderId: '206256362607',
+    projectId: 'cafeproject-2ccba',
+    authDomain: 'cafeproject-2ccba.firebaseapp.com',
+    storageBucket: 'cafeproject-2ccba.appspot.com',
+    measurementId: 'G-3PBE5K5LN2',
+  );
+
 }
